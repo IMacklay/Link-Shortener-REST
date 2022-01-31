@@ -21,7 +21,7 @@ public interface DetailLinkRepository extends JpaRepository<LinkDetail,Long> {
             "FROM \n" +
             "    (SELECT \n" +
             "       lk.Original, \n" +
-            "       lk.Short_Link link, \n" +
+            "       concat('/l/',lk.Short_Link) link, \n" +
             "       Row_Number() over (order by count(*) desc) rank, \n" +
             "       count(rd.id) as count \n" +
             "    FROM LINK lk \n" +
@@ -39,7 +39,7 @@ public interface DetailLinkRepository extends JpaRepository<LinkDetail,Long> {
             "    (SELECT \n " +
             "       Row_Number() over (order by lk.Original) id, " +
             "       lk.Original original, \n " +
-            "       lk.Short_Link link, \n " +
+            "       concat('/l/',lk.Short_Link) link, \n " +
             "       Row_Number() over (order by count(rd.id) desc) rank, \n " +
             "       count(rd.id) as count \n " +
             "    FROM LINK lk \n " +

@@ -34,7 +34,7 @@ public class GenerateShortLinkController {
         this.linkGeneratorService = linkGeneratorService;
     }
 
-    @PostMapping(value = "/**")
+    @PostMapping
     @JsonView(JSON_Views.PutShortLink.class)
     public ResponseEntity<?> generateEasyLink(@RequestParam(required = false) String[] original){
 

@@ -46,11 +46,4 @@ public class ShortLinkController {
                 .location(URI.create(link.getOriginal())).build();
     }
 
-
-
-
-
-
-
-
 }

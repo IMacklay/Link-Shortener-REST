@@ -38,7 +38,7 @@ public class LinkDetail {
     }
 
     public String getLink() {
-        return link;
+        return "/l/"+link;
     }
 
     public void setLink(String link) {
@@ -60,4 +60,5 @@ public class LinkDetail {
     public void setCount(long count) {
         this.count = count;
     }
+
 }
