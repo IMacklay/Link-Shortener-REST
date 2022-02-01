@@ -18,10 +18,8 @@ import java.net.URI;
 @RequestMapping("/l")
 public class ShortLinkController {
 
-
     private final RequestDataService requestDataService;
     private final LinkGeneratorService linkGeneratorService;
-
 
     @Autowired
     public ShortLinkController(RequestDataService requestDataService,

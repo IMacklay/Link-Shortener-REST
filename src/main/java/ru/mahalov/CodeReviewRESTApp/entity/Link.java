@@ -36,4 +36,7 @@ public class Link {
         this.original = original;
     }
 
+    public String getShortLink() {
+        return "/l/"+shortLink;
+    }
 }

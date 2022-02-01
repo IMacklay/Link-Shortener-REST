@@ -22,7 +22,6 @@ public class LinkGeneratorService {
             savedLink = add(url);
 
         return savedLink;
-
     }
 
     public Link add(String url){
