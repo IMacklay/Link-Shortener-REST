@@ -1,11 +1,15 @@
 package ru.mahalov.CodeReviewRESTApp.entity;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.sql.Date;
-import java.sql.Timestamp;
-import java.time.LocalDate;
 
 @Entity(name = "REQUEST_DATA")
+@NoArgsConstructor
+@Getter
 public class RequestData {
 
     @Id
@@ -20,17 +24,9 @@ public class RequestData {
     @JoinColumn(name = "link_id", nullable = false)
     private Link link;
 
-    public RequestData() {
-
-    }
-
     public RequestData(String requestHost, Link link) {
         this.requestDate = new Date(System.currentTimeMillis());
         this.requestHost = requestHost;
         this.link = link;
-    }
-
-    public Date getRequestDate() {
-        return requestDate;
     }
 }

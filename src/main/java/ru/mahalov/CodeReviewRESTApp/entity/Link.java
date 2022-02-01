@@ -4,12 +4,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonView;
+import lombok.*;
 import org.springframework.stereotype.Indexed;
 import ru.mahalov.CodeReviewRESTApp.entity.jsonview.JSON_Views;
 
 import javax.persistence.*;
 
 @Entity(name = "LINK")
+@Getter
+@NoArgsConstructor
+@RequiredArgsConstructor
 public class Link {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,38 +22,18 @@ public class Link {
 
     @Column(nullable = false, unique = true)
     @JsonView(JSON_Views.PutOriginal.class)
+    @NonNull
     private String original;
 
     @Column(unique = true)
     @JsonView(JSON_Views.PutShortLink.class)
     @JsonProperty("link")
+    @Setter
+    @NonNull
     private String shortLink;
-
-    public Link() {
-    }
-
-    public Link(String original, String shortLink) {
-        this.original = original;
-        this.shortLink = shortLink;
-    }
 
     public Link(String original) {
         this.original = original;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public String getOriginal() {
-        return original;
-    }
-
-    public String getShortLink() {
-        return shortLink;
-    }
-
-    public void setShortLink(String shortLink) {
-        this.shortLink = shortLink;
-    }
 }
