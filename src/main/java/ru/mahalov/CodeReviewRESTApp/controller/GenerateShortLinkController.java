@@ -43,9 +43,7 @@ public class GenerateShortLinkController {
             return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
 
         String originalUrl = original[0];
-
         Link link = linkGeneratorService.findAndGetShortLink(originalUrl);
-        link.setShortLink("/l/"+link.getShortLink());
 
         return new ResponseEntity<>(link,HttpStatus.OK);
     }
