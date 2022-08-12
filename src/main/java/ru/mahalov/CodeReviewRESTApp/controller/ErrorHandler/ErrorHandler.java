@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import ru.mahalov.CodeReviewRESTApp.Model.ErrorInfo;
 
 @ControllerAdvice
-
 public class ErrorHandler {
 
     @ExceptionHandler(Exception.class)
